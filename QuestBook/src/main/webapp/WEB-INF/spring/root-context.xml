@@ -23,16 +23,12 @@
 		<property name="password" value="" />
 	</bean>
 
-	<!-- 어노테이션 기반 트랜잭션 설정 -->
 	<tx:annotation-driven />
-
-	<!-- transaction manager -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<!-- mybatis 관련 설정 -->
  	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
         <property name="mapperLocations" value="classpath:com/nhnent/base/**/*Mapper.xml" />
@@ -41,8 +37,5 @@
         <property name="basePackage" value="com.nhnent.base" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
-    
-    <!-- jquery사용을 위한 -->
-	<!-- mvc:resources mapping="/resources/**" location="/resources/" /-->
     
 </beans>

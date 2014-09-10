@@ -76,7 +76,6 @@ function fnCmdDelete(articleId) {
 	
 	  </div>
 	</div>
-
 </form:form>
 
 </body>

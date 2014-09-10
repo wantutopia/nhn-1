@@ -2,8 +2,6 @@ package com.nhnent.base.guestbook;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.validation.Valid;
 

@@ -32,10 +32,8 @@
 			<button type="button" class="btn" onclick="history.back(-1)"><i class="icon-remove"></i> 취소</button>
 		</p>
 		</div>
-	
 	  </div>
 	</div>
-
 </form:form>
 
 </body>

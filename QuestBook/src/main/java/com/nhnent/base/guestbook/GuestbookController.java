@@ -95,32 +95,4 @@ public class GuestbookController {
         model.addAttribute("commandUrl", commandUrl);
     	return "guestbook/edit";
     }
-    
-    @RequestMapping(value = "/confirm2")
-    public String confirm2(
-    		@RequestParam(value = "articleId", required = false, defaultValue="0") int articleId,
-    		@RequestParam(value = "commandUrl") String commandUrl,
-    		@RequestParam(value = "pwdInput") String pwdInput,
-                       ModelMap model) throws Exception {
-        if(articleId <= 0) {
-        	model.addAttribute("message",
-    				"<script>alert('Error: 유효한 요청이 아닙니다.');history.back(-1)</script>");
-    		return "guestbook/error";
-        }
-    	GuestbookVO guestbookVO = null;
-    	guestbookVO = this.guestbookService.get(articleId);
-    	if(guestbookVO.getPwd().equals(pwdInput)) {
-    		if(commandUrl.equals("editsave")) {
-    			model.addAttribute("commandUrl", "editsave");
-    			model.addAttribute("result", guestbookVO);
-    			return "guestbook/write";
-    		} else if(commandUrl.equals("delete")) {
-    			model.addAttribute("articleId", articleId);
-    			return "redirect:delete";
-    		}
-    	}
-    	model.addAttribute("message",
-				"<script>alert('Error: 비밀번호가 틀립니다. 다시 입력해주세요.');history.back(-1)</script>");
-		return "guestbook/error";
-    }
 }

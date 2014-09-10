@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nhnent.base.guestbook.GuestbookMapper">
+	<resultMap id="guestbookMap" type="com.nhnent.base.guestbook.GuestbookVO">
+		<id property="id" column="article_id" />
+		<result property="content" column="article_content" />
+		<result property="name" column="user_name" />
+		<result property="pwd" column="user_pwd" />
+		<result property="mail" column="user_mail" />
+		<result property="cdate" column="create_date" />
+		<result property="edate" column="edit_date" />
+	</resultMap>
+	<select id="getAll" resultMap="guestbookMap">
+		SELECT
+			article_id,
+			article_content,
+			user_name,
+			user_pwd,
+			user_mail,
+			create_date,
+			edit_date
+		FROM qusetbook
+		ORDER BY article_id desc
+	</select>
+
+	<select id="get" resultMap="guestbookMap">
+		SELECT
+			article_id,
+			article_content,
+			user_name,
+			user_pwd,
+			user_mail,
+			create_date,
+			edit_date
+		FROM qusetbook
+		WHERE article_id = #{id}
+	</select>
+
+	<insert id="add">
+		INSERT INTO qusetbook
+		(
+			article_content,
+			user_name,
+			user_pwd,
+			user_mail,
+			create_date
+		) VALUES (
+			#{content},
+			#{name},
+			#{pwd},
+			#{mail},
+			SYSDATETIME
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE qusetbook
+		SET
+			article_content = #{content},
+			user_name = #{name},
+			user_pwd = #{pwd},
+			user_mail = #{mail},
+			edit_date = SYSDATETIME
+		WHERE article_id = #{id}
+	</update>
+
+	<delete id="delete">
+		DELETE
+		FROM qusetbook
+		WHERE article_id = #{id}
+	</delete>
+</mapper>

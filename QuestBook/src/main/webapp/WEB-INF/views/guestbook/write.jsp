@@ -17,7 +17,6 @@
 <script src="<c:url value="/resources/js/jquery-1.11.1.js"/>"></script>
 
 <script>
-<!--
 $(document).ready(function(){
 	$('#submit').click(function(){
 	 	if(confirm('정말로 글을 등록하시겠습니까?')) {
@@ -25,7 +24,6 @@ $(document).ready(function(){
 	 	}
    });
 });
-// -->
 </script>
 </head>
 <body>
@@ -89,7 +87,6 @@ ng-init="name='${result.name}';mail='${result.mail}';pwd='';content='${result.co
 		<td>
 			<p class="text-right">
 			<button id="submit" type="submit" class="btn btn-primary"><i class="icon-pencil"></i> 등록하기</button>
-			<!-- <a href="#myModal" role="button" class="btn" data-toggle="modal"><i class="icon-pencil"></i> 등록하기</a> -->
 			</p>
 		</td>
 	</tr>
@@ -99,26 +96,5 @@ ng-init="name='${result.name}';mail='${result.mail}';pwd='';content='${result.co
 </div>
 
 </form:form>
-
-
-
-
-<!-- <div class="modal hide" id="myModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Modal header</h3>
-	</div>
-	<div class="modal-body">
-		<p>One fine body…</p>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">
-			Close</button>
-		<button class="btn btn-primary">Save changes</button>
-	</div>
-</div> -->
-
 </body>
 </html>
